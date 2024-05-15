@@ -1,4 +1,4 @@
-[
+export default [
     {
         "id": 1,
         "content": "The only way to do great work is to love what you do.",

@@ -1,4 +1,4 @@
-[
+export default [
     {
         "id": 1,
         "content": "失敗は成功のもと。",
