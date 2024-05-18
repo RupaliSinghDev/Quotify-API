@@ -5,12 +5,9 @@ import cors from "cors";
 import english_quotes from "./Quotes/english_quotes.js"
 import hindi_quotes from "./Quotes/hindi_quotes.js"
 import japanese_quotes from "./Quotes/japanese_quotes.js"
-// import { promises as fsPromises } from 'fs';
-// import path from 'path'
+
 
 const app = express();
-// const fs = fsPromises;
-// const quotesDir = '/Quotes-API/Quotes';
 
 app.use(cors({
     origin: "*",
@@ -32,13 +29,6 @@ const getQuotes = async (language) => {
     }
 
     return quotes;
-    // const filePath = path.join(quotesDir, `${language}_quotes.json`);
-    // try {
-    //     const data = await fs.readFile(filePath);
-    //     return JSON.parse(data);
-    // } catch {
-    //     res.status(404).json({error: error.message});
-    // }
 };
 
 
@@ -93,7 +83,7 @@ const getRandomQuoteByGenre = (quotes, genre) => {
 };
 
 //Route to GET random quote in specified genre
-app.get('/quote/:language/:genre/random', async (req, res) => {
+app.get('/quote/random/:language/:genre', async (req, res) => {
     const language = req.params.language.toLowerCase();
     const genre = req.params.genre.toLowerCase();
     console.log(language)
@@ -106,7 +96,7 @@ app.get('/quote/:language/:genre/random', async (req, res) => {
     }
 });
 
-app.get('/quote/:language/random', async (req, res) => {
+app.get('/quote/random/:language', async (req, res) => {
     const {language} = req.params;
     console.log(language);
     try {
